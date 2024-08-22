@@ -88,8 +88,8 @@ userSchema.methods.comparepassword = function(enteredPassword) {
     return bcrypt.compareSync(enteredPassword, this.password)
 }
 
-userSchema.methods.getjwttoken = function () {
-    return jwt.sign({id:this._id},process.env.JWT_SECRET,{
+userSchema.methods.getjwttoken =async function () {
+    return await jwt.sign({id:this._id},process.env.JWT_SECRET,{
         expiresIn: process.env.JWT_EXPIRE
     })
 };
