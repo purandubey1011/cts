@@ -10,6 +10,14 @@ require('./models/database.js').connectDatabase()
 // logger
 app.use(require('morgan')('tiny'));
 
+// corc integration
+const cors = require("cors");app.use(
+    cors({
+      origin: "http://localhost:5173",
+      credentials: true,
+    })
+  );
+
 // body parser
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
