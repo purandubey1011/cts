@@ -23,7 +23,7 @@ exports.signup = catchAsyncErrors(async (req, res, next) => {
 
     const existedUser = await User.findOne({
         $or: [{ contact }, { email }]
-    })
+    })  
 
     if (existedUser) {
         throw new ErorrHandler("User with this email or contact already exists",409)

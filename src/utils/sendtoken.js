@@ -1,5 +1,5 @@
-exports.sendtoken = (user,statuscode,res)=>{
-    let token = user.getjwttoken();
+exports.sendtoken = async(user,statuscode,res)=>{
+    let token =await user.getjwttoken();
 
     let options = {
         expire:new Date(
